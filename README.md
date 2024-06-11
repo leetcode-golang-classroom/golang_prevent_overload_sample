@@ -14,6 +14,11 @@ This repostory is demo how to use golang to implementation prevent overload mech
 
 ![load-shedding.png](load-shedding.png)
 
+## loading test tool
+
+```shell
+go install github.com/codesenberg/bombardier@latest
+```
 ## golang implementation
 
 ### rate-limiter
