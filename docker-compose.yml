@@ -1,0 +1,38 @@
+services:
+  rate-limiter:
+    container_name: rate-limiter
+    build:
+      dockerfile: ./rate-limiter/Dockerfile
+      context: .
+    ports:
+      - 8001:8001
+    networks:
+      - sample
+    deploy:
+      resources:
+        limits:
+          cpus: 0.20
+          memory: 100M
+        reservations:
+          cpus: 0.10
+          memory: 50M
+  load-shedding:
+    container_name: load-shedding
+    build:
+      dockerfile: ./load-shedding/Dockerfile
+      context: .
+    ports:
+      - 8002:8002
+    networks:
+      - sample
+    deploy:
+      resources:
+        limits:
+          cpus: 0.20
+          memory: 100M
+        reservations:
+          cpus: 0.10
+          memory: 50M
+networks:
+  sample:
+    name: 'sample'
